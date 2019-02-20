@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% load staticfiles %}
+
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {%  block title %}
+    <title>Some title</title>
+    {% endblock %}
+
+    <link href="{% static 'forum/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'forum/css/index.css' %}">
+
+</head>
+
+<body>
+ <div class="space"></div>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <h1><a href="{% url 'forum:home' %}" class="navbar-brand">Forum</a></h1>
+            {% if user.is_authenticated %}
+                <div><a href="{% url 'forum:profile' %}" class="navbar-link">Logged in as {{ user.username }}</a></div>
+                <a href="{% url 'forum:logout' %}" class="navbar-link">Logout</a>
+             {% else %}
+                <a href="{% url 'forum:signup' %}" class="navbar-link">signup</a>
+            {% endif %}
+
+
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="small bg-dark text-white">
+        <div class="container-dli py-4 ">
+            <ul class="list-inline mb-0 text-center">
+                <li class="list-inline-item">&copy 2018 Davydov Dmytro</li>
+                <li class="list-inline-item">all rights reserved</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'forum/js/bootstrap.min.js' %}j"></script>
+</body>
+
+</html>
