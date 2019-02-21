@@ -27,6 +27,7 @@
             <h1><a href="{% url 'forum:home' %}" class="navbar-brand">Forum</a></h1>
             {% if user.is_authenticated %}
                 <div><a href="{% url 'forum:profile' %}" class="navbar-link">Logged in as {{ user.username }}</a></div>
+                 <div><a href="{% url 'payments:payment' %}" class="navbar-link">Get premium</a></div>
                 <a href="{% url 'forum:logout' %}" class="navbar-link">Logout</a>
              {% else %}
                 <a href="{% url 'forum:signup' %}" class="navbar-link">signup</a>
