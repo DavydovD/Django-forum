@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+
+<main>
+
+    {% block content %}
+
+        <h1>Get premium for 10$</h1>
+        <br>
+        <form action="" method="post">
+        {% csrf_token %}
+            <button>Buy</button>
+        </form>
+    {% endblock %}
+
+</main>
